@@ -1,26 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../Provider/authProvider";
-
+import { AuthContext } from "../Provider/AuthProvider"
 const Navbar = () => {
-    // const { user, signOutUser } = useContext(AuthContext);
+    const { user, signOutUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [userRole, setUserRole] = useState(null);
 
-    // useEffect(() => {
-    //     if (user) {
-    //         fetch(`https://imtiaztourismltdd.vercel.app/users/role?email=${user.email}`)
-    //             .then((response) => response.json())
-    //             .then((data) => {
-    //                 console.log(data.role);
-    //                 setUserRole(data.role); // Assuming API returns { role: "Tourist" } or similar
-    //             })
-    //             .catch((error) => {
-    //                 console.error("Error fetching user role:", error);
-    //             });
-    //     }
-    // }, [user]);
+    useEffect(() => {
+        if (user) {
+            fetch(`https://localhost:5000/users/role?email=${user.email}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.role);
+                    setUserRole(data.role);
+                })
+                .catch((error) => {
+                    console.error("Error fetching user role:", error);
+                });
+        }
+    }, [user]);
 
 
 
@@ -69,33 +68,33 @@ const Navbar = () => {
                     Teach On
                 </NavLink>
             </li>
-            
+
         </>
     );
 
     const dashboardLink = () => {
-        // switch (userRole) {
-        //     case "Tourist":
-        //         return "/dashboard/student";
-        //     case "Tour guide":
-        //         return "/dashboard/teacher";
-        //     case "Admin":
-        //         return "/dashboard/admin";
-        //     default:
-        //         return null;
-        // }
+        switch (userRole) {
+            case "Tourist":
+                return "/dashboard/student";
+            case "Tour guide":
+                return "/dashboard/teacher";
+            case "Admin":
+                return "/dashboard/admin";
+            default:
+                return null;
+        }
     };
 
     return (
         <div>
-            {/* {user && user.displayName && (
+            {user && user.displayName && (
                 <div className="bg-[#FEFAE0] text-center py-2">
                     <span className="text-sm font-medium text-[#333533]">
                         Welcome,
-                        {/* {user.displayName}! */}
-                    {/* </span>
+                        {user.displayName}
+                    </span>
                 </div>
-            )} */} 
+            )}
             <div className="navbar" style={{ backgroundColor: "#008080" }}>
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -134,7 +133,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">{links}</ul>
                 </div>
-                {/* <div className="navbar-end gap-4 flex items-center">
+                <div className="navbar-end gap-4 flex items-center">
                     {user && user.photoURL && (
                         <div className="relative">
                             <img
@@ -188,7 +187,7 @@ const Navbar = () => {
                             </NavLink>
                         </div>
                     )}
-                </div> */}
+                </div>
             </div>
         </div>
     );
