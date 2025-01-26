@@ -51,7 +51,7 @@ const FeedbackSection = () => {
                                             className="w-24 h-24 rounded-full object-cover mb-4"
                                         />
                                         <h3 className="text-xl font-bold">{feedback.name}</h3>
-                                        <p className="text-sm text-gray-500 mb-2">{feedback.title}</p>
+                                        <p className="text-sm text-gray-700 mb-2">Class Title: {feedback.classTitle}</p>
                                         <p className="text-gray-700 italic">"{feedback.text}"</p>
                                     </div>
                                 </div>
