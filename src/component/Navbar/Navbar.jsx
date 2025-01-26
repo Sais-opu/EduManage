@@ -27,7 +27,7 @@ const Navbar = () => {
         try {
             await signOutUser();
             console.log("User logged out successfully");
-            navigate("/"); // Redirect to home after logout
+            navigate("/"); 
         } catch (error) {
             console.error("Logout error:", error.message);
             console("Failed to log out. Please try again.");
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <NavLink
                     to="/"
                     className={({ isActive }) =>
-                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                        `px-4 py-2 rounded ${isActive ? " bg-green-700 text-white" : "bg-transparent text-black"}`
                     }
                 >
                     Home
@@ -50,9 +50,9 @@ const Navbar = () => {
             </li>
             <li className="mx-1">
                 <NavLink
-                    to=""
+                    to="/allclasses"
                     className={({ isActive }) =>
-                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                        `px-4 py-2 rounded ${isActive ? " bg-green-700 text-white" : "bg-transparent text-black"}`
                     }
                 >
                     All Classes
@@ -62,7 +62,7 @@ const Navbar = () => {
                 <NavLink
                     to=""
                     className={({ isActive }) =>
-                        `px-4 py-2 rounded ${isActive ? " bg-[#FFA500] text-white" : "bg-transparent text-black"}`
+                        `px-4 py-2 rounded ${isActive ? " bg-green-700 text-white" : "bg-transparent text-black"}`
                     }
                 >
                     Teach On
@@ -95,7 +95,7 @@ const Navbar = () => {
                     </span>
                 </div>
             )}
-            <div className="navbar" style={{ backgroundColor: "#008080" }}>
+            <div className="navbar bg-[#adff2f]" >
                 <div className="navbar-start">
                     <div className="dropdown">
                         <button tabIndex={0} className="btn btn-ghost lg:hidden text-[#3F0113]">
@@ -125,7 +125,7 @@ const Navbar = () => {
 
                     <NavLink
                         to="/"
-                        className="btn btn-ghost normal-case md:text-xl font-bold text-[#FFD700]"
+                        className="btn btn-ghost normal-case md:text-xl font-bold text-purple-700"
                     >
                         EduManage
                     </NavLink>
@@ -172,7 +172,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/register"
                                 className={({ isActive }) =>
-                                    `btn ${isActive ? "bg-[#FFA500] text-[#ffffff]" : "btn-outline border-[#FFA500] text-[#FFA500]"}`
+                                    `btn ${isActive ? "bg-green-700 text-[#ffffff]" : "btn-outline border-green-bg-green-700 text-black"}`
                                 }
                             >
                                 Sign Up
@@ -180,7 +180,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/login"
                                 className={({ isActive }) =>
-                                    `btn ${isActive ? "bg-[#FFA500] text-[#3F0113]" : "btn-outline border-[#FFA500] text-[#FFA500]"}`
+                                    `btn ${isActive ? "bg-green-700 text-[#3F0113]" : "btn-outline border-green-bg-green-700 text-black"}`
                                 }
                             >
                                 Log In

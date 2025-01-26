@@ -1,51 +1,61 @@
-// import "react-toastify/dist/ReactToastify.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
 import { Bounce, toast, ToastContainer } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
     const { signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [passwordError, setPasswordError] = useState("");
+    const [formErrors, setFormErrors] = useState({});
 
     const handleGoogleSignIn = async () => {
         try {
-            const auth = getAuth
+            const auth = getAuth();
             const result = await signInWithGoogle();
             const user = auth.currentUser;
+
             if (user) {
                 const userData = {
-
-                    firstName: user.displayName.split(" ")[0] || "Google user",
+                    firstName: user.displayName.split(" ")[0] || "Google User",
                     lastName: user.displayName.split(" ")[1] || "",
                     email: user.email,
                     photoURL: user.photoURL,
                     registrationDate: new Date().toISOString(),
-                }
-                const serverResponse = await fetch("http://localhost5000/register", {
+                };
+
+                const serverResponse = await fetch("http://localhost:5000/register", {
                     method: "POST",
-                    header: {
-                        "Content-type": "application/json",
-                    },
-                    body: JSON.stringify(userData)
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(userData),
                 });
+
                 if (!serverResponse.ok) {
-                    throw new Error('Failed to save Google user data to the server.')
+                    throw new Error("Failed to save Google user data to the server.");
                 }
-                // toast
-                navigate('/');
+
+                toast.success("Logged in with Google successfully!", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    theme: "light",
+                    transition: Bounce,
+                });
+
+                navigate("/");
             }
         } catch (error) {
-            // toast
             console.error("Google login failed:", error.message);
+            toast.error("Google login failed. Please try again.", {
+                position: "top-center",
+                autoClose: 5000,
+                theme: "light",
+                transition: Bounce,
+            });
         }
     };
-
-
 
     const validatePassword = (password) => {
         const hasUppercase = /[A-Z]/.test(password);
@@ -56,12 +66,10 @@ const Register = () => {
             setPasswordError("Password must contain at least one uppercase letter.");
             return false;
         }
-
         if (!hasLowercase) {
             setPasswordError("Password must contain at least one lowercase letter.");
             return false;
         }
-
         if (!isLongEnough) {
             setPasswordError("Password must be at least 6 characters long.");
             return false;
@@ -70,27 +78,25 @@ const Register = () => {
         setPasswordError("");
         return true;
     };
-    const validateForm = ({ fname, lname, email, password }) => {
-        const errors = [];
-        if (!fname.trim()) errors.fname = "First name is required.";
-        if (!lname.trim()) errors.lname = "Last name is required.";
-        if (!email.trim()) errors.email = "Email is required.";
-        if (!/\S+@\S+\.\S+/.test(email)) errors.email = "Email is invalid";
-        const passwordValidationError = validatePassword(password);
-        if (passwordValidationError) error.password = passwordValidationError;
-        return errors;
-    }
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        const fname = e.target.fname.value;
-        const lname = e.target.lname.value;
-        const email = e.target.email.value;
+        const fname = e.target.fname.value.trim();
+        const lname = e.target.lname.value.trim();
+        const email = e.target.email.value.trim();
         const password = e.target.password.value;
-        const imageURL = e.target.imageURL.value;
+        const imageURL = e.target.imageURL.value.trim();
 
-        if (!validatePassword(password)) {
-            toast.error("Invalid password. Please check the requirements.", {
+        const errors = {};
+        if (!fname) errors.fname = "First name is required.";
+        if (!lname) errors.lname = "Last name is required.";
+        if (!email) errors.email = "Email is required.";
+        if (!/\S+@\S+\.\S+/.test(email)) errors.email = "Invalid email address.";
+
+        setFormErrors(errors);
+
+        if (Object.keys(errors).length > 0 || !validatePassword(password)) {
+            toast.error("Please fix the errors in the form.", {
                 position: "top-center",
                 autoClose: 5000,
                 theme: "light",
@@ -111,22 +117,21 @@ const Register = () => {
 
             const serverResponse = await fetch("http://localhost:5000/register", {
                 method: "POST",
-                header: {
-                    "content-Type": "application/json",
-                },
-                boddy: JSON.stringify({
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
                     displayName: `${fname} ${lname}`,
                     photoURL: imageURL,
                     email: user.email,
                     fname,
                     lname,
-                })
+                }),
             });
+
             if (!serverResponse.ok) {
                 throw new Error("Failed to save user data to the server.");
             }
 
-            toast.success("User created successfully!", {
+            toast.success("User registered successfully!", {
                 position: "top-center",
                 autoClose: 5000,
                 theme: "light",
@@ -225,40 +230,29 @@ const Register = () => {
                             {showPassword ? "Hide" : "Show"}
                         </button>
                     </div>
-                    {passwordError && (
-                        <p className="text-red-500 text-xs italic mt-2">{passwordError.password}</p>
-                    )}
+                    {passwordError && <p className="text-red-500 text-xs italic mt-2">{passwordError}</p>}
                 </div>
                 <button type="submit" className="btn btn-success">
                     Register Now
                 </button>
                 <div className="mt-3">
                     <hr />
-                    <button onClick={handleGoogleSignIn} className="btn mt-5 btn-ghost btn-outline
-                    ">
-                        Login with Google <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
-                            <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                        </svg>
+                    <button
+                        type="button"
+                        onClick={handleGoogleSignIn}
+                        className="btn mt-5 btn-ghost btn-outline"
+                    >
+                        Register with Google
                     </button>
-                </div>
-                <div className="mt-6 text-xl">
-                    Already have an account? <Link to="/login">Login now</Link>
+                    <p>
+                        Already have an account?{" "}
+                        <Link to="/login" className="underline hover:text-primary">
+                            Login here
+                        </Link>
+                    </p>
                 </div>
             </form>
-
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-                transition="bounce"
-            />
+            <ToastContainer />
         </div>
     );
 };

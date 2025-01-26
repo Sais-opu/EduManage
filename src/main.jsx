@@ -6,6 +6,7 @@ import Home from './component/Home/Home'
 import Root from './Root'
 import Register from './component/Register/Register'
 import AuthProvider from './component/Provider/AuthProvider'
+import Allclases from './component/AllClasses/Allclases'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register></Register>
+      },
+      {
+        path: "allclasses",
+        element: <Allclases></Allclases>
       }
     ]
   }
