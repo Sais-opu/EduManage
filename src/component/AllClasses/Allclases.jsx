@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Allclases = () => {
+const AllClasses = () => {
     const [classes, setClasses] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchClasses = async () => {
             try {
-                const response = await fetch('http://localhost:5000/courses'); 
+                const response = await fetch('http://localhost:5000/courses');
                 const data = await response.json();
                 setClasses(data.filter(cls => cls.status === "approved"));
             } catch (error) {
@@ -16,6 +18,10 @@ const Allclases = () => {
 
         fetchClasses();
     }, []);
+
+    const handleEnroll = (id) => {
+        navigate(`/class/${id}`);
+    };
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
@@ -27,7 +33,7 @@ const Allclases = () => {
                     <p className="text-gray-600 mt-2"><strong>Price:</strong> ${cls.price}</p>
                     <p className="text-gray-600 mt-2">{cls.short_description}</p>
                     <p className="text-gray-600 mt-2"><strong>Total Enrolments:</strong> {cls.total_enrolment}</p>
-                    <button 
+                    <button
                         className="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
                         onClick={() => handleEnroll(cls._id)}>
                         Enroll
@@ -38,6 +44,4 @@ const Allclases = () => {
     );
 };
 
-
-
-export default Allclases;
+export default AllClasses;

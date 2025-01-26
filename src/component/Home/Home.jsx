@@ -3,6 +3,7 @@ import Banner from './Banner';
 import PartnerSection from './PartnerSection';
 import HighlightClasses from './HighlightClasses';
 import StatisticsSection from './StatisticsSection';
+import FeedbackSection from './FeedbackSection';
 
 const Home = () => {
     return (
@@ -18,6 +19,9 @@ const Home = () => {
             </div>
             <div>
                 <StatisticsSection></StatisticsSection>
+            </div>
+            <div>
+                <FeedbackSection></FeedbackSection>
             </div>
         </div>
     );

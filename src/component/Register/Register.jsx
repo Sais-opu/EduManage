@@ -19,41 +19,30 @@ const Register = () => {
             const user = auth.currentUser;
 
             if (user) {
-                const userData = {
-                    firstName: user.displayName.split(" ")[0] || "Google User",
-                    lastName: user.displayName.split(" ")[1] || "",
-                    email: user.email,
-                    photoURL: user.photoURL,
-                    registrationDate: new Date().toISOString(),
-                };
-
                 const serverResponse = await fetch("http://localhost:5000/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(userData),
+                    body: JSON.stringify({
+                        displayName: user.displayName || "Google User",
+                        photoURL: user.photoURL || "default-url",
+                        email: user.email,
+                        firstName: user.displayName?.split(" ")[0] || "Google",
+                        lastName: user.displayName?.split(" ")[1] || "User",
+                        registrationDate: new Date().toISOString(),
+                    }),
                 });
 
                 if (!serverResponse.ok) {
-                    throw new Error("Failed to save Google user data to the server.");
+                    const errorData = await serverResponse.json();
+                    throw new Error(errorData.message || "Failed to register user.");
                 }
 
-                toast.success("Logged in with Google successfully!", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    theme: "light",
-                    transition: Bounce,
-                });
-
+                toast.success("Logged in with Google successfully!");
                 navigate("/");
             }
         } catch (error) {
             console.error("Google login failed:", error.message);
-            toast.error("Google login failed. Please try again.", {
-                position: "top-center",
-                autoClose: 5000,
-                theme: "light",
-                transition: Bounce,
-            });
+            toast.error("Google login failed. Please try again.");
         }
     };
 
@@ -122,8 +111,8 @@ const Register = () => {
                     displayName: `${fname} ${lname}`,
                     photoURL: imageURL,
                     email: user.email,
-                    fname,
-                    lname,
+                    firstName: fname,
+                    lastName: lname,
                 }),
             });
 

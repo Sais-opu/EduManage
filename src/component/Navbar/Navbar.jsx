@@ -9,17 +9,25 @@ const Navbar = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://localhost:5000/users/role?email=${user.email}`)
-                .then((response) => response.json())
+            fetch(`http://localhost:5000/users/role?email=${user.email}`)
+                .then((response) => {
+                    console.log(`Status: ${response.status}`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then((data) => {
-                    console.log(data.role);
-                    setUserRole(data.role);
+                    console.log("API Response Data:", data);  // Log the entire response
+                    setUserRole(data.role);  // This should set the role if it's returned
                 })
                 .catch((error) => {
                     console.error("Error fetching user role:", error);
                 });
+
         }
     }, [user]);
+
 
 
 
@@ -27,7 +35,7 @@ const Navbar = () => {
         try {
             await signOutUser();
             console.log("User logged out successfully");
-            navigate("/"); 
+            navigate("/");
         } catch (error) {
             console.error("Logout error:", error.message);
             console("Failed to log out. Please try again.");
@@ -60,7 +68,7 @@ const Navbar = () => {
             </li>
             <li className="mx-1">
                 <NavLink
-                    to=""
+                    to="/teachon"
                     className={({ isActive }) =>
                         `px-4 py-2 rounded ${isActive ? " bg-green-700 text-white" : "bg-transparent text-black"}`
                     }
@@ -74,9 +82,9 @@ const Navbar = () => {
 
     const dashboardLink = () => {
         switch (userRole) {
-            case "Tourist":
+            case "Student":
                 return "/dashboard/student";
-            case "Tour guide":
+            case "Teacher":
                 return "/dashboard/teacher";
             case "Admin":
                 return "/dashboard/admin";

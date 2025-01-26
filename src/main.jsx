@@ -7,6 +7,10 @@ import Root from './Root'
 import Register from './component/Register/Register'
 import AuthProvider from './component/Provider/AuthProvider'
 import Allclases from './component/AllClasses/Allclases'
+import TeachOn from './component/TeachOn/TeachOn'
+import PrivateRoute from './component/PrivateRoute/PrivateRoute'
+import ClassDetails from './component/AllClasses/ClassDetails'
+import Login from './component/Login/Login'
 
 const router = createBrowserRouter([
   {
@@ -22,8 +26,21 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
+        path: "/login",
+        element:<Login></Login>
+      },
+      {
         path: "allclasses",
         element: <Allclases></Allclases>
+      },
+      {
+        path: '/teachon',
+        element: <TeachOn></TeachOn>
+        
+      },
+      {
+        path: '/class/:id',
+        element: <PrivateRoute><ClassDetails></ClassDetails></PrivateRoute>
       }
     ]
   }
