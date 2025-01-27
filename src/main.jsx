@@ -11,6 +11,15 @@ import TeachOn from './component/TeachOn/TeachOn'
 import PrivateRoute from './component/PrivateRoute/PrivateRoute'
 import ClassDetails from './component/AllClasses/ClassDetails'
 import Login from './component/Login/Login'
+import DashboardLayout from './component/DashboardLayout'
+import StudentDashboard from './component/StudentDashboard/StudentDashboard'
+import MyProfile from './component/StudentDashboard/MyProfile'
+import AdminDashboard from './component/AdminDashboard/AdminDashboard'
+import AdminUsers from './component/AdminDashboard/AdminUsers'
+import TeacherRequest from './component/AdminDashboard/TeacherRequest'
+import TeacherDashboard from './component/TeacherDashboard/TeacherDashboard'
+import AddClass from './component/TeacherDashboard/AddClass'
+import MyClassses from './component/TeacherDashboard/MyClasses'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +50,53 @@ const router = createBrowserRouter([
       {
         path: '/class/:id',
         element: <PrivateRoute><ClassDetails></ClassDetails></PrivateRoute>
+      }
+    ]
+  },
+  {
+    path: '/',
+    element: <DashboardLayout></DashboardLayout>,
+    // errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/dashboard/student",
+        element: <StudentDashboard></StudentDashboard>
+      },
+      {
+        path: "/dashboard/myprofile",
+        element: <MyProfile></MyProfile>
+      },
+      {
+      path: '/dashboard/myenrolledclasses'  
+      },
+      {
+        Path: "/dashboard/admin",
+        element: <AdminDashboard></AdminDashboard>
+        
+      },
+      {
+        path: '/dashboard/users',
+        element: <AdminUsers></AdminUsers>
+      },
+      {
+        path: '/dashboard/admin/teacherrequest',
+        element: <TeacherRequest></TeacherRequest>
+      },
+      {
+        path: '/dashboard/admin/allclasses',
+        element: <TeacherRequest></TeacherRequest>
+      },
+      {
+        path: '/dashboard/teacher',
+        element: <TeacherDashboard></TeacherDashboard>
+      },
+      {
+        path: '/dashboard/teacher/addclasses',
+        element: <AddClass></AddClass>
+      },
+      {
+        path: '/dashboard/teacher/myclasses',
+        element: <MyClassses></MyClassses>
       }
     ]
   }

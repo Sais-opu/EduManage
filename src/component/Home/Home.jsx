@@ -5,6 +5,8 @@ import HighlightClasses from './HighlightClasses';
 import StatisticsSection from './StatisticsSection';
 import FeedbackSection from './FeedbackSection';
 import JoinAsATeacher from './JoinAsATeacher';
+import How from './How';
+import Another from './Another';
 
 const Home = () => {
     return (
@@ -26,6 +28,12 @@ const Home = () => {
             </div>
             <div>
                 <JoinAsATeacher></JoinAsATeacher>
+            </div>
+            <div>
+                <How></How>
+            </div>
+            <div>
+                <Another></Another>
             </div>
         </div>
     );
