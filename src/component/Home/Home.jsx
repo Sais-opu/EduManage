@@ -4,6 +4,7 @@ import PartnerSection from './PartnerSection';
 import HighlightClasses from './HighlightClasses';
 import StatisticsSection from './StatisticsSection';
 import FeedbackSection from './FeedbackSection';
+import JoinAsATeacher from './JoinAsATeacher';
 
 const Home = () => {
     return (
@@ -22,6 +23,9 @@ const Home = () => {
             </div>
             <div>
                 <FeedbackSection></FeedbackSection>
+            </div>
+            <div>
+                <JoinAsATeacher></JoinAsATeacher>
             </div>
         </div>
     );

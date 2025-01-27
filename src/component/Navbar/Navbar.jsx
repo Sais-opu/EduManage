@@ -18,8 +18,8 @@ const Navbar = () => {
                     return response.json();
                 })
                 .then((data) => {
-                    console.log("API Response Data:", data);  // Log the entire response
-                    setUserRole(data.role);  // This should set the role if it's returned
+                    console.log("API Response Data:", data);  
+                    setUserRole(data.role);  
                 })
                 .catch((error) => {
                     console.error("Error fetching user role:", error);

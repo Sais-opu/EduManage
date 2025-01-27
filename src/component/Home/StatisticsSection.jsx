@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+
 const StatisticsSection = () => {
     const [stats, setStats] = useState({
         totalUsers: 0,
@@ -22,11 +23,11 @@ const StatisticsSection = () => {
     }, []);
 
     return (
-        <div><h1 className="text-5xl bg-white text-black text-center font-semibold">Statistics</h1>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-6 bg-gray-100">
+        <div><h1 className="text-5xl bg-[#adff2f] text-black text-center font-semibold">Statistics</h1>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-6 bg-[#adff2f]">
                 {/* Left Side - Cards */}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full md:w-1/2">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full md:w-1/2 ">
                     {/* Total Users */}
                     <div className="bg-white shadow-lg rounded-2xl p-6 text-center">
                         <h2 className="text-xl font-semibold text-gray-800">Total Users</h2>
