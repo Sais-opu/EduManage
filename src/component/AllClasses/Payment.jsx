@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const Payment = () => {
     const { user } = useContext(AuthContext);
@@ -36,6 +37,12 @@ const Payment = () => {
 
     const handlePayment = async () => {
         setLoading(true);
+        toast.success('Payment successful!', {
+            position: "top-center",
+            autoClose: 5000,
+            theme: "light",
+            transition: Bounce,
+        });
 
         try {
             // Process payment

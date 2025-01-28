@@ -1,7 +1,16 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Bounce, toast } from "react-toastify";
 
 const TeachOn = () => {
+    const handleToast=()=> { 
+        toast.success('Sub successful!', {
+            position: "top-center",
+            autoClose: 5000,
+            theme: "light",
+            transition: Bounce,
+        });
+    }
     const { user } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         name: user?.displayName || "",
@@ -118,6 +127,7 @@ const TeachOn = () => {
                 </div>
                 <button
                     type="submit"
+                    onClick={handleToast}
                     className={`w-full px-4 py-2 text-white font-bold rounded-lg ${loading
                         ? "bg-gray-400 cursor-not-allowed"
                         : "bg-green-500 hover:bg-green-600"

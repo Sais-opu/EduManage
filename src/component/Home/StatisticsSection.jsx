@@ -57,10 +57,17 @@ const StatisticsSection = () => {
                 {/* Right Side - Image */}
                 <div className="w-full md:w-1/2 flex items-center justify-center">
                     <img
-                        src="https://i.ibb.co.com/jW0Y2vK/images-q-tbn-ANd9-Gc-SN0ue-J4-YHQ0dh5-Bb-A4c-Vq3-Jwxurh-Hhx-Iqx-Q-s.jpg"
+                        src="https://i.ibb.co.com/tsrhB5x/edu-pic.jpg"
                         alt="Educational Illustration"
                         className="rounded-xl shadow-lg"
                     />
+                    
+                    {/* <img
+                        src="https://i.ibb.co.com/jW0Y2vK/images-q-tbn-ANd9-Gc-SN0ue-J4-YHQ0dh5-Bb-A4c-Vq3-Jwxurh-Hhx-Iqx-Q-s.jpg"
+                        alt="Educational Illustration"
+                        className="rounded-xl shadow-lg"
+                        
+                    /> */}
                 </div>
             </div>
         </div>

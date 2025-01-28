@@ -6,8 +6,11 @@ const Banner = () => {
             <div
                 className="hero min-h-screen"
                 style={{
-                    backgroundImage: "url(https://i.ibb.co.com/dpxRZpY/images-q-tbn-ANd9-Gc-RV-K5-MP72h09bvb9-Hwh-YE7-Fe-M5-Mo-WE7-J3gfg-s.jpg)",
+                    backgroundImage: "url(https://i.ibb.co.com/DV76Y5Y/b.jpg)",
                 }}>
+                {/* style={{
+                    backgroundImage: "url(https://i.ibb.co.com/dpxRZpY/images-q-tbn-ANd9-Gc-RV-K5-MP72h09bvb9-Hwh-YE7-Fe-M5-Mo-WE7-J3gfg-s.jpg)",
+                }}> */}
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-neutral-content text-center">
                     <div className="max-w-md">

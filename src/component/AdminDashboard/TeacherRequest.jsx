@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Bounce, toast } from 'react-toastify';
+
 
 const TeacherRequest = () => {
     const [requests, setRequests] = useState([]);
@@ -29,6 +31,12 @@ const TeacherRequest = () => {
                     req._id === id ? { ...req, status: 'approved' } : req
                 )
             );
+            toast.success('Congrates for teacher!', {
+                position: "top-center",
+                autoClose: 5000,
+                theme: "light",
+                transition: Bounce,
+            });
         } catch (error) {
             console.error('Error approving request:', error);
         }
@@ -43,6 +51,12 @@ const TeacherRequest = () => {
                     req._id === id ? { ...req, status: 'rejected' } : req
                 )
             );
+            toast.success('Rejected! please try next time.', {
+                position: "top-center",
+                autoClose: 5000,
+                theme: "light",
+                transition: Bounce,
+            });
         } catch (error) {
             console.error('Error rejecting request:', error);
         }

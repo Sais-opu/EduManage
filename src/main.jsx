@@ -23,6 +23,8 @@ import MyClassses from './component/TeacherDashboard/MyClasses'
 import MyEnrolClass from './component/StudentDashboard/MyEnrolClass'
 import Payment from './component/AllClasses/Payment'
 import MyEnrollClassDetails from './component/StudentDashboard/MyEnrollClassDetails'
+import { ToastContainer } from 'react-toastify'
+
 
 const router = createBrowserRouter([
   {
@@ -120,6 +122,19 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router}></RouterProvider>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition="bounce"
+      />
     </AuthProvider>
   </StrictMode>,
 )
