@@ -19,11 +19,11 @@ import AdminUsers from './component/AdminDashboard/AdminUsers'
 import TeacherRequest from './component/AdminDashboard/TeacherRequest'
 import TeacherDashboard from './component/TeacherDashboard/TeacherDashboard'
 import AddClass from './component/TeacherDashboard/AddClass'
-import MyClassses from './component/TeacherDashboard/MyClasses'
 import MyEnrolClass from './component/StudentDashboard/MyEnrolClass'
 import Payment from './component/AllClasses/Payment'
 import MyEnrollClassDetails from './component/StudentDashboard/MyEnrollClassDetails'
 import { ToastContainer } from 'react-toastify'
+import MyClass from './component/TeacherDashboard/MyClass'
 
 
 const router = createBrowserRouter([
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/teacher/myclasses',
-        element: <MyClassses></MyClassses>
+      element : <MyClass></MyClass> 
       }
     ]
   }

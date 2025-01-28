@@ -19,7 +19,7 @@ const AdminUsers = () => {
         };
 
         fetchUsers();
-    }, [search]); // Re-fetch when search term changes
+    }, [search]); 
 
     const handleMakeAdmin = async (email) => {
         try {
@@ -29,7 +29,7 @@ const AdminUsers = () => {
                     user.email === email ? { ...user, userRole: 'Admin' } : user
                 )
             );
-            toast.success('Login successful!', {
+            toast.success('Make Admin successful!', {
                 position: "top-center",
                 autoClose: 5000,
                 theme: "light",
