@@ -9,35 +9,34 @@ const ClassDetails = () => {
     useEffect(() => {
         const fetchClassDetails = async () => {
             try {
-                console.log('Fetching details for class ID:', id); // Log the class ID
                 const response = await fetch(`https://edumanage-server-nine.vercel.app/courses/${id}`);
-
                 if (!response.ok) {
                     throw new Error(`Failed to fetch class details: ${response.statusText}`);
                 }
-
                 const data = await response.json();
-                console.log('Class details fetched successfully:', data); // Log the fetched data
                 setClassDetails(data);
             } catch (error) {
-                console.error('Error fetching class details:', error.message); // Log the error message
+                console.error('Error fetching class details:', error.message);
             }
         };
 
         fetchClassDetails();
     }, [id]);
 
-    useEffect(() => {
-        console.log('classDetails state updated:', classDetails);
-    }, [classDetails]);
-
     const handlePay = () => {
-        console.log('Redirecting to payment for class ID:', id);
-        navigate(`/payment/${id}`);
+        if (classDetails) {
+            navigate(`/payment/${id}`, {
+                state: {
+                    amount: classDetails.price,
+                    username: classDetails.name,
+                    title: classDetails.title,
+                    image: classDetails.image,
+                },
+            });
+        }
     };
 
     if (!classDetails) {
-        console.log('Loading class details...');
         return <div className="text-center text-xl text-gray-500">Loading...</div>;
     }
 
@@ -56,7 +55,6 @@ const ClassDetails = () => {
                 <p className="text-lg text-gray-700"><strong>Price:</strong> ${classDetails.price}</p>
                 <p className="text-lg text-gray-700"><strong>Description:</strong> {classDetails.short_description}</p>
                 <p className="text-lg text-gray-700"><strong>Total Enrolment:</strong> {classDetails.total_enrolment}</p>
-                
                 <button
                     onClick={handlePay}
                     className="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 focus:outline-none transition duration-300"

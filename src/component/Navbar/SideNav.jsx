@@ -97,7 +97,7 @@ const SideNav = () => {
                         <>
                             <li style={sidebarItemStyle}>
                                 <NavLink
-                                    to="/dashboard/myenrolledclasses"
+                                    to="/dashboard/my-enrollclasses"
                                     style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
                                 >
                                     My Enrol Class

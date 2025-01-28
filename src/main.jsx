@@ -21,6 +21,8 @@ import TeacherDashboard from './component/TeacherDashboard/TeacherDashboard'
 import AddClass from './component/TeacherDashboard/AddClass'
 import MyClassses from './component/TeacherDashboard/MyClasses'
 import MyEnrolClass from './component/StudentDashboard/MyEnrolClass'
+import Payment from './component/AllClasses/Payment'
+import MyEnrollClassDetails from './component/StudentDashboard/MyEnrollClassDetails'
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "allclasses",
         element: <Allclases></Allclases>
+      },
+      {
+        path:"/payment/:id",
+        element: <Payment></Payment>
       },
       {
         path: '/teachon',
@@ -68,8 +74,12 @@ const router = createBrowserRouter([
         element: <MyProfile></MyProfile>
       },
       {
-        path: '/dashboard/myenrolledclasses',
+        path: '/dashboard/my-enrollclasses',
       element: <MyEnrolClass></MyEnrolClass>
+      },
+      {
+        path: '/dashboard/myenroll-class/:cls',
+        element: <MyEnrollClassDetails></MyEnrollClassDetails>
       },
       {
         path: "/dashboard/admin",
