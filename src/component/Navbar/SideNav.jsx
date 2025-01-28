@@ -12,7 +12,7 @@ const SideNav = () => {
         const fetchUserRole = async () => {
             if (user?.email) {
                 try {
-                    const response = await fetch(`http://localhost:5000/users/role?email=${user.email}`, {
+                    const response = await fetch(`https://edumanage-server-nine.vercel.app/users/role?email=${user.email}`, {
                         headers: { 'Authorization': `Bearer ${user.token}` },
                     });
                     if (!response.ok) {

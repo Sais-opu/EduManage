@@ -18,7 +18,7 @@ const TeachOn = () => {
         e.preventDefault();
         setLoading(true); // Show loading state during submission
         try {
-            const response = await fetch("http://localhost:5000/teaching-requests", {
+            const response = await fetch("https://edumanage-server-nine.vercel.app/teaching-requests", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

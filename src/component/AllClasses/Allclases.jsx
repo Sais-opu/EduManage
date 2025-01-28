@@ -8,7 +8,7 @@ const AllClasses = () => {
     useEffect(() => {
         const fetchClasses = async () => {
             try {
-                const response = await fetch('http://localhost:5000/courses');
+                const response = await fetch('https://edumanage-server-nine.vercel.app/courses');
                 const data = await response.json();
                 setClasses(data.filter(cls => cls.status === "approved"));
             } catch (error) {

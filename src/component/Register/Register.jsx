@@ -19,7 +19,7 @@ const Register = () => {
             const user = auth.currentUser;
 
             if (user) {
-                const serverResponse = await fetch("http://localhost:5000/register", {
+                const serverResponse = await fetch("https://edumanage-server-nine.vercel.app/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -104,7 +104,7 @@ const Register = () => {
                 photoURL: imageURL,
             });
 
-            const serverResponse = await fetch("http://localhost:5000/register", {
+            const serverResponse = await fetch("https://edumanage-server-nine.vercel.app/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

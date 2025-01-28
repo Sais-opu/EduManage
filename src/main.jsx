@@ -20,6 +20,7 @@ import TeacherRequest from './component/AdminDashboard/TeacherRequest'
 import TeacherDashboard from './component/TeacherDashboard/TeacherDashboard'
 import AddClass from './component/TeacherDashboard/AddClass'
 import MyClassses from './component/TeacherDashboard/MyClasses'
+import MyEnrolClass from './component/StudentDashboard/MyEnrolClass'
 
 const router = createBrowserRouter([
   {
@@ -67,10 +68,11 @@ const router = createBrowserRouter([
         element: <MyProfile></MyProfile>
       },
       {
-      path: '/dashboard/myenrolledclasses'  
+        path: '/dashboard/myenrolledclasses',
+      element: <MyEnrolClass></MyEnrolClass>
       },
       {
-        Path: "/dashboard/admin",
+        path: "/dashboard/admin",
         element: <AdminDashboard></AdminDashboard>
         
       },

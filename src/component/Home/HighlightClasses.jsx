@@ -11,7 +11,7 @@ const HighlightClasses = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/courses');
+                const response = await axios.get('https://edumanage-server-nine.vercel.app/courses');
                 console.log("Fetched courses:", response.data);
                 setCourses(response.data.sort((a, b) => b.enrollment - a.enrollment).slice(0, 6));
             } catch (error) {

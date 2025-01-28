@@ -10,7 +10,7 @@ const ClassDetails = () => {
         const fetchClassDetails = async () => {
             try {
                 console.log('Fetching details for class ID:', id); // Log the class ID
-                const response = await fetch(`http://localhost:5000/courses/${id}`);
+                const response = await fetch(`https://edumanage-server-nine.vercel.app/courses/${id}`);
 
                 if (!response.ok) {
                     throw new Error(`Failed to fetch class details: ${response.statusText}`);

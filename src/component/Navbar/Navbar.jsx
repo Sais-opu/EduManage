@@ -9,7 +9,7 @@ const Navbar = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/users/role?email=${user.email}`)
+            fetch(`https://edumanage-server-nine.vercel.app/users/role?email=${user.email}`)
                 .then((response) => {
                     console.log(`Status: ${response.status}`);
                     if (!response.ok) {

@@ -8,7 +8,7 @@ const FeedbackSection = () => {
         // Fetch feedback data from the server
         const fetchFeedbacks = async () => {
             try {
-                const response = await fetch('http://localhost:5000/feedback');
+                const response = await fetch('https://edumanage-server-nine.vercel.app/feedback');
                 const data = await response.json();
                 setFeedbacks(data);
             } catch (error) {

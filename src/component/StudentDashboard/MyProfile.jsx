@@ -10,14 +10,14 @@ const MyProfile = () => {
         const fetchUserData = async () => {
             if (user?.email) {
                 try {
-                    const response = await fetch(`http://localhost:5000/user/role?email=${user.email}`);
+                    const response = await fetch(`https://edumanage-server-nine.vercel.app/user/role?email=${user.email}`);
                     if (!response.ok) {
                         const errorText = await response.text();
                         throw new Error(`Server error: ${errorText}`);
                     }
                     const data = await response.json();
-                    console.log('Fetched user role:', data.userRole); // Log for debugging
-                    setUserData({ userRole: data.userRole, fullName: data.fullName, phone:data.phone }); // Update userData with the role
+                    console.log('Fetched user role:', data.userRole); 
+                    setUserData({ userRole: data.userRole, fullName: data.fullName, phone:data.phone }); 
                 } catch (error) {
                     console.error('Error fetching user data:', error.message);
                     setError(error.message);
