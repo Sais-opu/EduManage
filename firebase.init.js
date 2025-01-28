@@ -5,13 +5,14 @@ import { getAuth } from 'firebase/auth';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-    apiKey: "AIzaSyC1LAJM2l2K6qsieFFVPdXfKJHn8s0WgdA",
-    authDomain: "edumanage-f0f88.firebaseapp.com",
-    projectId: "edumanage-f0f88",
-    storageBucket: "edumanage-f0f88.firebasestorage.app",
-    messagingSenderId: "348318672745",
-    appId: "1:348318672745:web:6ecf5f149e98e7dd2bfff8"
+    apiKey: import.meta.env.VITE_apiKey,
+    authDomain: import.meta.env.VITE_authDomain,
+    projectId: import.meta.env.VITE_projectId,
+    storageBucket: import.meta.env.VITE_storageBucket,
+    messagingSenderId: import.meta.env.VITE_messagingSenderId,
+    appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

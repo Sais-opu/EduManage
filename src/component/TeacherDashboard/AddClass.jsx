@@ -23,7 +23,7 @@ const AddClass = () => {
         };
     
         try {
-            const response = await axios.post('http://localhost:5000/courses/add', classData);
+            const response = await axios.post('https://edumanage-server-nine.vercel.app/courses/add', classData);
             console.log(response.status); // Log the response status to confirm it's 201
             if (response.status === 201) {
                 navigate('/dashboard/teacher/myclasses');

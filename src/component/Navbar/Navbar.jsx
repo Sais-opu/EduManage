@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider"
+import icon from '../../assets/icon/favicon-32x32.png'
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -134,7 +135,7 @@ const Navbar = () => {
                     <NavLink
                         to="/"
                         className="btn btn-ghost normal-case md:text-xl font-bold text-purple-700"
-                    >
+                    > <img src={icon} alt="" />
                         EduManage
                     </NavLink>
                 </div>

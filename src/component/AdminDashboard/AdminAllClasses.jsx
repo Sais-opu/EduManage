@@ -6,7 +6,7 @@ const AdminAllClasses = () => {
 
     useEffect(() => {
         // Fetch all courses from the backend
-        axios.get('http://localhost:5000/courses/all')
+        axios.get('https://edumanage-server-nine.vercel.app/courses/all')
             .then(response => setCourses(response.data))
             .catch(error => console.error('Error fetching courses:', error));
     }, []);
@@ -14,7 +14,7 @@ const AdminAllClasses = () => {
     const handleApprove = async (courseId) => {
         try {
             // Update course status to "approved"
-            await axios.patch(`http://localhost:5000/courses/${courseId}/approve`);
+            await axios.patch(`https://edumanage-server-nine.vercel.app/courses/${courseId}/approve`);
             setCourses(prevCourses => 
                 prevCourses.map(course => 
                     course._id === courseId ? { ...course, status: 'approved' } : course
@@ -28,7 +28,7 @@ const AdminAllClasses = () => {
     const handleReject = async (courseId) => {
         try {
             // Update course status to "rejected"
-            await axios.patch(`http://localhost:5000/courses/${courseId}/reject`);
+            await axios.patch(`https://edumanage-server-nine.vercel.app/courses/${courseId}/reject`);
             setCourses(prevCourses => 
                 prevCourses.map(course => 
                     course._id === courseId ? { ...course, status: 'rejected' } : course

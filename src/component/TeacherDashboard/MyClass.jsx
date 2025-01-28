@@ -13,7 +13,7 @@ const MyClass = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/courses/all')
+            .get('https://edumanage-server-nine.vercel.app/courses/all')
             .then((response) => {
                 setClasses(response.data);
                 // Filter classes based on the logged-in teacher's displayName
@@ -45,7 +45,7 @@ const MyClass = () => {
         setLoading(true);
         try {
             await axios.put(
-                `http://localhost:5000/courses/${selectedClass._id}/update`,
+                `https://edumanage-server-nine.vercel.app/courses/${selectedClass._id}/update`,
                 updateData
             );
             setFilteredClasses((prev) =>
@@ -70,7 +70,7 @@ const MyClass = () => {
     const handleDelete = async (courseId) => {
         if (window.confirm('Are you sure you want to delete this class?')) {
             try {
-                await axios.delete(`http://localhost:5000/courses/${courseId}/delete`);
+                await axios.delete(`https://edumanage-server-nine.vercel.app/courses/${courseId}/delete`);
                 setFilteredClasses((prev) =>
                     prev.filter((course) => course._id !== courseId)
                 );

@@ -10,7 +10,7 @@ const TeacherRequest = () => {
     useEffect(() => {
         const fetchRequests = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/teaching-requests');
+                const response = await axios.get('https://edumanage-server-nine.vercel.app/teaching-requests');
                 setRequests(response.data);
             } catch (error) {
                 console.error('Error fetching teacher requests:', error);
@@ -22,9 +22,9 @@ const TeacherRequest = () => {
     const handleApprove = async (id, email) => {
         try {
             
-            await axios.put(`http://localhost:5000/teaching-requests/${id}`, { status: 'approved' });
+            await axios.put(`https://edumanage-server-nine.vercel.app/teaching-requests/${id}`, { status: 'approved' });
 
-            await axios.put(`http://localhost:5000/users/${email}`, { userRole: 'Teacher' });
+            await axios.put(`https://edumanage-server-nine.vercel.app/users/${email}`, { userRole: 'Teacher' });
 
             setRequests((prev) =>
                 prev.map((req) =>
@@ -44,7 +44,7 @@ const TeacherRequest = () => {
 
     const handleReject = async (id) => {
         try {
-            await axios.put(`http://localhost:5000/teaching-requests/${id}`, { status: 'rejected' });
+            await axios.put(`https://edumanage-server-nine.vercel.app/teaching-requests/${id}`, { status: 'rejected' });
 
             setRequests((prev) =>
                 prev.map((req) =>

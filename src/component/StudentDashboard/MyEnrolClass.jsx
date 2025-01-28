@@ -10,7 +10,7 @@ const MyEnrolClass = () => {
     useEffect(() => {
         const fetchEnrolledClasses = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/enrolled?email=${user?.email}`);
+                const response = await fetch(`https://edumanage-server-nine.vercel.app/enrolled?email=${user?.email}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }

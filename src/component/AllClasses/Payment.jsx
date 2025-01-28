@@ -46,7 +46,7 @@ const Payment = () => {
 
         try {
             // Process payment
-            const paymentResponse = await fetch('http://localhost:5000/payment', {
+            const paymentResponse = await fetch('https://edumanage-server-nine.vercel.app/payment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ classId: id, username: name, email, amount: price }),
@@ -56,7 +56,7 @@ const Payment = () => {
                 throw new Error('Payment failed.');
             }
 
-            const enrollmentResponse = await fetch('http://localhost:5000/enrolled', {
+            const enrollmentResponse = await fetch('https://edumanage-server-nine.vercel.app/enrolled', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ classId: id, username: name, email, title, image }),

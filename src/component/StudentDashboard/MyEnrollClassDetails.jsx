@@ -15,7 +15,7 @@ const MyEnrollClassDetails = () => {
     useEffect(() => {
         const fetchAssignments = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/assignments`);
+                const response = await fetch(`https://edumanage-server-nine.vercel.app/assignments`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch assignments');
                 }
@@ -42,7 +42,7 @@ const MyEnrollClassDetails = () => {
 
     const handleSubmitAssignment = async (assignmentId) => {
         try {
-            const response = await fetch('http://localhost:5000/submit-assignment', {
+            const response = await fetch('https://edumanage-server-nine.vercel.app/submit-assignment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ assignmentId, email: user?.email }),
@@ -66,7 +66,7 @@ const MyEnrollClassDetails = () => {
 
     const handleEvaluation = async () => {
         try {
-            const response = await fetch('http://localhost:5000/submit-feedback', {
+            const response = await fetch('https://edumanage-server-nine.vercel.app/submit-feedback', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

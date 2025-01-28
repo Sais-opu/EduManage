@@ -11,7 +11,7 @@ const AdminUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/users?search=${search}`);
+                const response = await axios.get(`https://edumanage-server-nine.vercel.app/users?search=${search}`);
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -23,7 +23,7 @@ const AdminUsers = () => {
 
     const handleMakeAdmin = async (email) => {
         try {
-            await axios.put(`http://localhost:5000/users/${email}`, { userRole: 'Admin' });
+            await axios.put(`https://edumanage-server-nine.vercel.app/users/${email}`, { userRole: 'Admin' });
             setUsers(prevUsers =>
                 prevUsers.map(user =>
                     user.email === email ? { ...user, userRole: 'Admin' } : user
