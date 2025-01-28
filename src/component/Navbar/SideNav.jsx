@@ -149,7 +149,7 @@ const SideNav = () => {
                             </li>
                             <li style={sidebarItemStyle}>
                                 <NavLink
-                                    to="//dashboard/admin/allclasses"
+                                    to="/dashboard/admin/allclasses"
                                     style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
                                 >
                                     All Classes

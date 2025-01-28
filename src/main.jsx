@@ -24,6 +24,7 @@ import Payment from './component/AllClasses/Payment'
 import MyEnrollClassDetails from './component/StudentDashboard/MyEnrollClassDetails'
 import { ToastContainer } from 'react-toastify'
 import MyClass from './component/TeacherDashboard/MyClass'
+import AdminAllClasses from './component/AdminDashboard/AdminAllClasses'
 
 
 const router = createBrowserRouter([
@@ -98,7 +99,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/admin/allclasses',
-        element: <TeacherRequest></TeacherRequest>
+        element: <AdminAllClasses></AdminAllClasses>
       },
       {
         path: '/dashboard/teacher',

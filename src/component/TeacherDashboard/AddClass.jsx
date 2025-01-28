@@ -6,7 +6,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 const AddClass = () => {
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('');
+    const [short_description, setDescription] = useState('');
     const [image, setImage] = useState('');
     const {user}=useContext(AuthContext)
     const navigate = useNavigate(); 
@@ -16,7 +16,7 @@ const AddClass = () => {
         const classData = {
             title,
             price,
-            description,
+            short_description,
             image,
             email: user.email,
             name: user.displayName,
@@ -80,7 +80,7 @@ const AddClass = () => {
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Description</label>
                     <textarea
-                        value={description}
+                        value={short_description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
                         className="mt-1 text-black block w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
