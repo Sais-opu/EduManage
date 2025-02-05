@@ -4,8 +4,6 @@
 
 EduManage is a comprehensive MERN stack-based web application designed to streamline class management, skill learning, and interaction among educational institutions, tutors, and students. The platform aims to make education more efficient and accessible.
 
-
-
 ## Live Link
 
 Click here to see [Live Link](https://edumanage-f0f88.web.app/)
@@ -23,6 +21,31 @@ Click here to see [Live Link](https://edumanage-f0f88.web.app/)
 - **Pagination:** Efficient pagination for tables and lists.
 - **TanStack Query:** Integrated for seamless data fetching.
 - **Dynamic Search:** Real-time search for users and classes.
+
+## Tech Stack
+
+### Frontend:
+- React.js
+- Tailwind CSS
+- DaisyUI
+- Axios
+- React Router DOM
+- React Bootstrap
+- React Toastify
+- Swiper
+- React Slick
+
+### Backend:
+- Node.js
+- Express.js
+- Firebase Authentication
+- MongoDB
+
+### Frameworks & Tools:
+- Vite
+- ESLint
+- PostCSS
+- TanStack Query
 
 ## Project Setup
 
