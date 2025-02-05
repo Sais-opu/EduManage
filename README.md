@@ -53,7 +53,7 @@ To run the project locally, follow these steps:
 
 ```sh
 # Clone the repository
-git clone https://github.com/Sais-opu/EduManage.git
+git clone https://github.com/Sais-opu/EduManage-client.git
 
 # Navigate to the project folder
 cd edumanage
