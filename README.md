@@ -64,6 +64,12 @@ npm install
 # Start the development server
 npm run dev
 ```
+```sh
+#Or you can try to install
+npm i react-router-dom
+npm i react-toastify
+npm install
+```
 
 ## Package Dependencies
 
