@@ -22,30 +22,13 @@ Click here to see [Live Link](https://edumanage-f0f88.web.app/)
 - **TanStack Query:** Integrated for seamless data fetching.
 - **Dynamic Search:** Real-time search for users and classes.
 
-## Tech Stack
+## 🛠️ Technologies Used  
 
-### Frontend:
-- React.js
-- Tailwind CSS
-- DaisyUI
-- Axios
-- React Router DOM
-- React Bootstrap
-- React Toastify
-- Swiper
-- React Slick
-
-### Backend:
-- Node.js
-- Express.js
-- Firebase Authentication
-- MongoDB
-
-### Frameworks & Tools:
-- Vite
-- ESLint
-- PostCSS
-- TanStack Query
+- **Frontend**: React, React Router, Material UI, TailwindCSS, DaisyUI  
+- **Backend**: Firebase  
+- **Deployment**: Vercel, Netlify, Firebase Hosting  
+- **State Management & UI**: React Hooks, Emotion, Lottie  
+- **Notifications & Alerts**: React Toastify, SweetAlert2 
 
 ## Project Setup
 
