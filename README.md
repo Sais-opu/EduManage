@@ -30,7 +30,7 @@ Click here to see [Live Link](https://edumanage-f0f88.web.app/)
 - **State Management & UI**: React Hooks, Emotion, Lottie  
 - **Notifications & Alerts**: React Toastify, SweetAlert2
 
-  ## Additional Resources
+## Additional Resources
 
 Here are some useful resources to help you understand the technologies used in this project:
 
