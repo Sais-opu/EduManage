@@ -53,7 +53,7 @@ To run the project locally, follow these steps:
 
 ```sh
 # Clone the repository
-git clone [[https://github.com/your-repo-link.git](https://github.com/Sais-opu/EduManage.git)](https://github.com/Sais-opu/EduManage.git)
+git clone https://github.com/Sais-opu/EduManage.git
 
 # Navigate to the project folder
 cd edumanage
@@ -113,3 +113,7 @@ npm run dev
   }
 }
 ```
+
+## License
+
+This project is licensed under the MIT License.
