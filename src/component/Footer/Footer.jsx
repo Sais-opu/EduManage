@@ -1,5 +1,9 @@
 import React from 'react';
 // import logo from '../../assets/icon/travel-bag.png'
+// ## Admin
+
+// - **Admin Username:** saidulislamoppofriend@gmail.com  
+// - **Password:** Sa1234567  
 const Footer = () => {
     return (
         <footer className="footer footer-center bg-black text-white rounded p-10">
