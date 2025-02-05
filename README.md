@@ -3,10 +3,10 @@
 ![EduManage Banner](https://i.ibb.co.com/hJFq19JK/edu.png)
 
 EduManage is a comprehensive MERN stack-based web application designed to streamline class management, skill learning, and interaction among educational institutions, tutors, and students. The platform aims to make education more efficient and accessible.
+## 🌍 Live Demo  
 
-## Live Link
+🔗 **[Visit CrowdCube Live](https://edumanage-f0f88.web.app/)**  
 
-Click here to see [Live Link](https://edumanage-f0f88.web.app/)
 
 ## Features
 
